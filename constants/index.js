@@ -59,3 +59,36 @@ export const home_page = {
     },
   },
 };
+export const about_page = {
+  first_div: {
+    title: "Delivering Exceptional Quality that Exceeds Your Expectations",
+    description:
+      "Seeking Reliable Crane Solutions for Your Business?                                                                                                                         ",
+  },
+  company_started: {
+    title: "Saif Al Mufaddal: Elevating Industrial Performance",
+    description:
+      "Saif Al Mufaddal is a leading provider of comprehensive industrial solutions, specializing in the design, manufacture, installation, and maintenance of high-performance cranes. Our years of experience and dedication to excellence ensure superior craftsmanship and exceptional service.Our expertise extends beyond cranes, encompassing a wide range of industrial electrical services and a comprehensive inventory of genuine crane spare parts. We are dedicated to exceeding client expectations, ensuring optimal performance, and driving operational efficiency across diverse industries.",
+  },
+  working_progress: {
+    first_step: {
+      title: "Project Inception",
+      description:
+        "Begin with a thorough project consultation to understand your goals and challenges.",
+    },
+    second_step: {
+      title: "Expert Design & Planning",
+      description:
+        "Our experienced engineers will design a customized solution that maximizes efficiency and minimizes downtime.",
+    },
+    third_step: {
+      title: "Seamless Execution",
+      description:
+        "We'll expertly execute the project, ensuring timely completion and exceeding your expectations.",
+    },
+    testimonial: {
+      title:
+        "Experience the Saif Al Mufaddal Difference. See why our customers choose us.",
+    },
+  },
+};

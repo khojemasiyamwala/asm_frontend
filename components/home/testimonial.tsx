@@ -14,8 +14,8 @@ function Testimonial() {
               <div className="sec-title">
                 <span className="tag-line">testimonials</span>
                 <h2>
-                  You are in Very Good <br /> Hands, Check What <br /> our
-                  Customers are <br /> Talking About
+                  Experience the Saif Al Mufaddal Difference. See why our
+                  customers choose us.
                 </h2>
               </div>
               <a href="#" className="thm-btn">

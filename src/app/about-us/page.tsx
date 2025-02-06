@@ -1,7 +1,8 @@
 import React from "react";
 import Testimonial from "../../../components/home/testimonial";
 import WorkedWith from "../../../components/home/WorkedWith";
-
+import { about_page } from "../../../constants";
+import Link from "next/link";
 const Page = () => {
   return (
     <>
@@ -37,14 +38,11 @@ const Page = () => {
           </div>
           <div className="row">
             <div className="col-lg-12">
-              <h3>
-                Provide you the Highest Quality Work <br /> that Meets your
-                Expectation.
-              </h3>
-              <p>Need a High Quality Constructor for your Project?</p>
-              <a href="#" className="thm-btn">
+              <h3>{about_page.first_div.title}</h3>
+              <p>{about_page.first_div.description}</p>
+              <Link href="/contact-us" className="thm-btn">
                 Contact with us
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -71,17 +69,9 @@ const Page = () => {
               <div className="content-block">
                 <div className="sec-title m-0">
                   <span className="tag-line light">Company Started</span>
-                  <h2 className="light">
-                    Running a Successful <br /> Business Since 1987
-                  </h2>
+                  <h2 className="light">{about_page.company_started.title}</h2>
                 </div>
-                <p>
-                  There are many variations of passages of lorem ipsum
-                  available, but the majority have suffered alteration in some
-                  form by injected humour or randomised words which don't look
-                  even slightly believable. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit sed do eiusmod tempor incididunt.
-                </p>
+                <p>{about_page.company_started.description}</p>
                 <div className="row">
                   <div className="col-md-6">
                     <div className="single-featured-content-one text-center">
@@ -120,11 +110,8 @@ const Page = () => {
                   <span className="count ">
                     01 <span className="text-name">Step</span>
                   </span>
-                  <h3>Request a Meeting</h3>
-                  <p>
-                    Lorem Ipsum is simply free dumy text of the printing and
-                    amet consecte simple piscing.
-                  </p>
+                  <h3>{about_page.working_progress.first_step.title}</h3>
+                  <p>{about_page.working_progress.first_step.description}</p>
                 </div>
               </div>
               <div className="col-lg-4">
@@ -135,11 +122,8 @@ const Page = () => {
                   <span className="count ">
                     02 <span className="text-name">Step</span>
                   </span>
-                  <h3>Recieve Custom Plan</h3>
-                  <p>
-                    Lorem Ipsum is simply free dumy text of the printing and
-                    amet consecte simple piscing.
-                  </p>
+                  <h3>{about_page.working_progress.second_step.title}</h3>
+                  <p>{about_page.working_progress.second_step.description}</p>
                 </div>
               </div>
               <div className="col-lg-4">
@@ -150,20 +134,12 @@ const Page = () => {
                   <span className="count ">
                     03 <span className="text-name">Step</span>
                   </span>
-                  <h3>Let’s Make it Happen</h3>
-                  <p>
-                    Lorem Ipsum is simply free dumy text of the printing and
-                    amet consecte simple piscing.
-                  </p>
+                  <h3>{about_page.working_progress.third_step.title}</h3>
+                  <p>{about_page.working_progress.third_step.description}</p>
                 </div>
               </div>
             </div>
           </div>
-          <p className="block-text text-center">
-            Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas.
-            Sapien nunc amet ultrices, dolores sit <br /> ipsum velit purus
-            aliquet, massa fringilla leo orci ipsum dolor sit amet elit magnis.
-          </p>
         </div>
       </section>
 
