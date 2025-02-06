@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./card";
 import { db, getAllDocuments } from "../../services/firebase/index";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { useRouter } from "next/navigation";
 const Product = ({ type, url }: any) => {
   const [d, setD] = useState([]);
   console.log("🚀 ~ Product ~ d:", d);
@@ -25,6 +26,7 @@ const Product = ({ type, url }: any) => {
       setD(data);
     })();
   }, [type]);
+  const router = useRouter();
   return (
     <>
       <div className="inner-banner text-center">
@@ -45,7 +47,9 @@ const Product = ({ type, url }: any) => {
           <div className="row">
             {d.length ? (
               d?.map((item: any, index: number) => (
-                <Card item={item} url={url} />
+                <div className="col-lg-4 col-md-6 col-sm-6">
+                  <Card item={item} url={url} />
+                </div>
               ))
             ) : (
               <div

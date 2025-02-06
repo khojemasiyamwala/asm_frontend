@@ -9,7 +9,6 @@ const Card = ({ item, url }: any) => {
   return (
     <>
       <div
-        className="col-lg-4 col-md-6 col-sm-6"
         style={{ ...(item.isDetailPage ? { cursor: "pointer" } : {}) }}
         onClick={() => {
           if (item.isDetailPage) {

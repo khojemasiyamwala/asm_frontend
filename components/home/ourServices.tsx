@@ -1,18 +1,41 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 const ReactOwlCarousel = dynamic(() => import("react-owl-carousel"), {
   ssr: false,
 });
-
+import { useEffect, useState } from "react";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../services/firebase";
+import Card from "../products/card";
 function OurServices() {
-  return (
+  const [d, setD] = useState([]);
+  console.log("🚀 ~ OurServices ~ d:", d);
+  useEffect(() => {
+    (async () => {
+      const q = query(collection(db, "products"));
+
+      const docSnap = await getDocs(q);
+
+      const data: any = [];
+      docSnap.forEach((element) => {
+        const a: any = element.data();
+        a._id = element.id;
+        data.push(a);
+      });
+
+      setD(data);
+    })();
+  }, []);
+  console.log("🚀 ~ OurServices ~ d:", d);
+  return d.length ? (
     <section className="sec-pad gray-bg">
       <div className="container">
         <div className="sec-title text-center">
-          <span className="tag-line">Our Services</span>
-          <h2>Industries Served</h2>
+          <span className="tag-line">Our Projects</span>
+          <h2>Explore Recent Projects</h2>
+         
         </div>
         <div className="service-style-one-carousel">
           <ReactOwlCarousel
@@ -27,217 +50,30 @@ function OurServices() {
             dots={true}
             nav={false}
           >
-            <div className="item">
-              <div className="single-service-style-one">
-                <div className="top-box text-center">
-                  <div className="inner-content">
-                    <i className="facdori-icon-factory-1 box-icon"></i>
-                    <h3>
-                      <Link href="#">Petroleum and Gas</Link>
-                    </h3>
-                  </div>
-                </div>
+            {d?.map((item: any, index: number) => {
+              let url;
+              switch (item.category) {
+                case "Crane":
+                  url = "crane";
+                  break;
+                case "SpareParts":
+                  url = "spare-parts";
+                  break;
+                case "Services":
+                  url = "service";
+                  break;
 
-                <div className="image-block">
-                  <img src="images/services-1-1.jpg" alt="Awesome Image" />
-                  <div className="overlay">
-                    <div className="box">
-                      <div className="content">
-                        <div className="dotted"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="single-service-style-one">
-                <div className="top-box text-center">
-                  <div className="inner-content">
-                    <i className="facdori-icon-factory-3 box-icon"></i>
-                    <h3>
-                      <Link href="#">Industrial Construction</Link>
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="image-block">
-                  <img src="images/services-1-2.jpg" alt="Awesome Image" />
-                  <div className="overlay">
-                    <div className="box">
-                      <div className="content">
-                        <div className="dotted"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="single-service-style-one">
-                <div className="top-box text-center">
-                  <div className="inner-content">
-                    <i className="facdori-icon-factory-2 box-icon"></i>
-                    <h3>
-                      <Link href="#">Chemical Research</Link>
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="image-block">
-                  <img src="images/services-1-3.jpg" alt="Awesome Image" />
-                  <div className="overlay">
-                    <div className="box">
-                      <div className="content">
-                        <div className="dotted"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="single-service-style-one">
-                <div className="top-box text-center">
-                  <div className="inner-content">
-                    <i className="facdori-icon-factory-1 box-icon"></i>
-                    <h3>
-                      <Link href="#">Petroleum and Gas</Link>
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="image-block">
-                  <img src="images/services-1-1.jpg" alt="Awesome Image" />
-                  <div className="overlay">
-                    <div className="box">
-                      <div className="content">
-                        <div className="dotted"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="single-service-style-one">
-                <div className="top-box text-center">
-                  <div className="inner-content">
-                    <i className="facdori-icon-factory-3 box-icon"></i>
-                    <h3>
-                      <Link href="#">Industrial Construction</Link>
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="image-block">
-                  <img src="images/services-1-2.jpg" alt="Awesome Image" />
-                  <div className="overlay">
-                    <div className="box">
-                      <div className="content">
-                        <div className="dotted"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="single-service-style-one">
-                <div className="top-box text-center">
-                  <div className="inner-content">
-                    <i className="facdori-icon-factory-2 box-icon"></i>
-                    <h3>
-                      <Link href="#">Chemical Research</Link>
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="image-block">
-                  <img src="images/services-1-3.jpg" alt="Awesome Image" />
-                  <div className="overlay">
-                    <div className="box">
-                      <div className="content">
-                        <div className="dotted"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="single-service-style-one">
-                <div className="top-box text-center">
-                  <div className="inner-content">
-                    <i className="facdori-icon-factory-1 box-icon"></i>
-                    <h3>
-                      <Link href="#">Petroleum and Gas</Link>
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="image-block">
-                  <img src="images/services-1-1.jpg" alt="Awesome Image" />
-                  <div className="overlay">
-                    <div className="box">
-                      <div className="content">
-                        <div className="dotted"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="single-service-style-one">
-                <div className="top-box text-center">
-                  <div className="inner-content">
-                    <i className="facdori-icon-factory-3 box-icon"></i>
-                    <h3>
-                      <Link href="#">Industrial Construction</Link>
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="image-block">
-                  <img src="images/services-1-2.jpg" alt="Awesome Image" />
-                  <div className="overlay">
-                    <div className="box">
-                      <div className="content">
-                        <div className="dotted"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="single-service-style-one">
-                <div className="top-box text-center">
-                  <div className="inner-content">
-                    <i className="facdori-icon-factory-2 box-icon"></i>
-                    <h3>
-                      <Link href="#">Chemical Research</Link>
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="image-block">
-                  <img src="images/services-1-3.jpg" alt="Awesome Image" />
-                  <div className="overlay">
-                    <div className="box">
-                      <div className="content">
-                        <div className="dotted"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                default:
+                  break;
+              }
+              return <Card item={item} url={url} />;
+            })}
           </ReactOwlCarousel>
         </div>
       </div>
     </section>
+  ) : (
+    <></>
   );
 }
 

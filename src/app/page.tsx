@@ -2,6 +2,9 @@
 import Testimonial from "../../components/home/testimonial";
 import OurServices from "../../components/home/ourServices";
 import WorkedWith from "../../components/home/WorkedWith";
+import { home_page } from "../../constants/index";
+import Link from "next/link";
+
 export default function Home() {
   return (
     <>
@@ -32,16 +35,15 @@ export default function Home() {
                 <div className="box valign-middle">
                   <div className="content text-center">
                     <h3 data-animation="animated fadeInUp">
-                      Lifting Your Potential: Innovative Crane Solutions for
-                      Every Need
+                      {home_page.Carousels.Cranes}
                     </h3>
-                    <a
+                    <Link
                       data-animation="animated fadeInDown"
                       href="#"
                       className="thm-btn"
                     >
                       Discover more
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -59,16 +61,15 @@ export default function Home() {
                 <div className="box valign-middle">
                   <div className="content text-center">
                     <h3 data-animation="animated fadeInUp">
-                      Genuine Quality. Uninterrupted Operation. Genuine Crane
-                      Spare Parts.
+                      {home_page.Carousels.Services}
                     </h3>
-                    <a
+                    <Link
                       data-animation="animated fadeInDown"
                       href="#"
                       className="thm-btn"
                     >
                       Discover more
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -86,16 +87,15 @@ export default function Home() {
                 <div className="box valign-middle">
                   <div className="content text-center">
                     <h3 data-animation="animated fadeInUp">
-                      Expert Care for Lifelong Performance: Unmatched Crane
-                      Maintenance and Support.
+                      {home_page.Carousels.Spare_Parts}
                     </h3>
-                    <a
+                    <Link
                       data-animation="animated fadeInDown"
                       href="#"
                       className="thm-btn"
                     >
                       Discover more
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -103,7 +103,7 @@ export default function Home() {
           </div>
         </div>
 
-        <a
+        <Link
           className="carousel-control-prev carousel-control-one-prev"
           href="#minimal-bootstrap-carousel"
           role="button"
@@ -111,8 +111,8 @@ export default function Home() {
         >
           <i className="fa fa-arrow-left"></i>
           <span className="sr-only">Previous</span>
-        </a>
-        <a
+        </Link>
+        <Link
           className="carousel-control-next carousel-control-one-next"
           href="#minimal-bootstrap-carousel"
           role="button"
@@ -120,7 +120,7 @@ export default function Home() {
         >
           <i className="fa fa-arrow-right"></i>
           <span className="sr-only">Next</span>
-        </a>
+        </Link>
       </div>
 
       <section className="about-style-five sec-pad">
@@ -130,19 +130,10 @@ export default function Home() {
               <div className="content-block text-center">
                 <div className="sec-title mb-0">
                   <span className="tag-line">get to know us</span>
-                  <h2>
-                    Welcome to Our <br /> Industrial Business
-                  </h2>
+                  <h2>{home_page.Introduction.Title}</h2>
                 </div>
-                <p>
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form, by injected humour, or randomised words which don't look
-                  even slightly believable. If you are going to use a passage of
-                  lorem ipsum is simply free text available in the martker now
-                  you need to be sure there isn't anything embarrassing hidden
-                  in the middle of text.{" "}
-                </p>
+                <p>{home_page.Introduction.Paragraph_1}</p>
+
                 <div className="phone-block">
                   <div className="icon-block">
                     <i className="facdori-icon-phone-call-1"></i>
@@ -157,13 +148,7 @@ export default function Home() {
                 <img src="images/about-2-1.jpg" alt="Awesome Image" />
               </div>
               <div className="image-block-text gray-bg">
-                <h4>
-                  We have 25+ years of experiences for give you better results.
-                </h4>
-                <p>
-                  There are many variations of passages of lorem ipsum available
-                  but the majority have suffered alteration in some form
-                </p>
+                <p>{home_page.Introduction.Paragraph_2}</p>
               </div>
             </div>
           </div>
@@ -175,41 +160,11 @@ export default function Home() {
       <section className="project-style-one sec-pad-top">
         <div className="container-fluid p-0">
           <div className="sec-title text-center">
-            <span className="tag-line">Our Projects</span>
-            <h2>Explore Recent Projects</h2>
+            <span className="tag-line">Our Services</span>
+            <h2>Industries Served</h2>
           </div>
           <div className="row no-gutters">
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-              <div className="single-project-style-one">
-                <div className="image-block">
-                  <img src="images/project-1-1.jpg" alt="Awesome Image" />
-                  <div className="overlay">
-                    <div className="box">
-                      <div className="content">
-                        <div className="inner-content">
-                          <h3>
-                            <a href="project-details.html">
-                              Welding Processing
-                            </a>
-                          </h3>
-                          <p>
-                            There are many new variations of available but
-                            majority is simple free text.
-                          </p>
-                          <a
-                            href="project-details.html"
-                            className="thm-btn style-two white-hover"
-                          >
-                            Read More
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div className="single-project-style-one">
                 <div className="image-block">
                   <img src="images/project-1-2.jpg" alt="Awesome Image" />
@@ -217,21 +172,14 @@ export default function Home() {
                     <div className="box">
                       <div className="content">
                         <div className="inner-content">
-                          <h3>
-                            <a href="project-details.html">
-                              Bridge Construction
-                            </a>
-                          </h3>
-                          <p>
-                            There are many new variations of available but
-                            majority is simple free text.
-                          </p>
-                          <a
-                            href="project-details.html"
+                          <h3>{home_page.Our_Services.Cranes.title}</h3>
+                          <p>{home_page.Our_Services.Cranes.description}</p>
+                          <Link
+                            href={home_page.Our_Services.Cranes.url}
                             className="thm-btn style-two"
                           >
                             Read More
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -239,7 +187,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div className="single-project-style-one">
                 <div className="image-block">
                   <img src="images/project-1-3.jpg" alt="Awesome Image" />
@@ -247,21 +195,14 @@ export default function Home() {
                     <div className="box">
                       <div className="content">
                         <div className="inner-content">
-                          <h3>
-                            <a href="project-details.html">
-                              Machinery Manufacturing
-                            </a>
-                          </h3>
-                          <p>
-                            There are many new variations of available but
-                            majority is simple free text.
-                          </p>
-                          <a
-                            href="project-details.html"
+                          <h3>{home_page.Our_Services.Services.title}</h3>
+                          <p>{home_page.Our_Services.Services.description}</p>
+                          <Link
+                            href={home_page.Our_Services.Services.url}
                             className="thm-btn style-two"
                           >
                             Read More
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -269,7 +210,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div className="single-project-style-one">
                 <div className="image-block">
                   <img src="images/project-1-4.jpg" alt="Awesome Image" />
@@ -277,21 +218,16 @@ export default function Home() {
                     <div className="box">
                       <div className="content">
                         <div className="inner-content">
-                          <h3>
-                            <a href="project-details.html">
-                              Oil & Gas Productions
-                            </a>
-                          </h3>
+                          <h3>{home_page.Our_Services.Spare_Parts.title}</h3>
                           <p>
-                            There are many new variations of available but
-                            majority is simple free text.
+                            {home_page.Our_Services.Spare_Parts.description}
                           </p>
-                          <a
-                            href="project-details.html"
+                          <Link
+                            href={home_page.Our_Services.Spare_Parts.url}
                             className="thm-btn style-two"
                           >
                             Read More
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -311,14 +247,11 @@ export default function Home() {
             <div className="col-lg-5">
               <div className="sec-title">
                 <span className="tag-line">Why People Choose Us?</span>
-                <h2>
-                  We’ve 25+ Years of <br /> Experiences for <br /> Give you
-                  Better <br /> Results
-                </h2>
+                <h2>{home_page.choose_us.title_para}</h2>
               </div>
-              <a href="#" className="thm-btn style-two">
+              <Link href="#" className="thm-btn style-two">
                 Read More
-              </a>
+              </Link>
             </div>
             <div className="col-lg-7">
               <div className="row featured-style-two-row">
@@ -334,11 +267,7 @@ export default function Home() {
                         </h3>
                       </div>
                     </div>
-                    <p>
-                      Lorem ipsum dolor sit a consetetur simple is pscing elitr
-                      sed diam nonumy eirmod simply free text not tempor
-                      invidunt.
-                    </p>
+                    <p>{home_page.choose_us.safetyAndSecurity.description}</p>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -353,11 +282,7 @@ export default function Home() {
                         </h3>
                       </div>
                     </div>
-                    <p>
-                      Lorem ipsum dolor sit a consetetur simple is pscing elitr
-                      sed diam nonumy eirmod simply free text not tempor
-                      invidunt.
-                    </p>
+                    <p>{home_page.choose_us.smartSolutions.description}</p>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -367,16 +292,10 @@ export default function Home() {
                         <i className="facdori-icon-factory-3"></i>
                       </div>
                       <div className="text-block">
-                        <h3>
-                          Founded in <br /> 1987
-                        </h3>
+                        <h3>Transparency</h3>
                       </div>
                     </div>
-                    <p>
-                      Lorem ipsum dolor sit a consetetur simple is pscing elitr
-                      sed diam nonumy eirmod simply free text not tempor
-                      invidunt.
-                    </p>
+                    <p>{home_page.choose_us.transparency.description}</p>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -391,11 +310,7 @@ export default function Home() {
                         </h3>
                       </div>
                     </div>
-                    <p>
-                      Lorem ipsum dolor sit a consetetur simple is pscing elitr
-                      sed diam nonumy eirmod simply free text not tempor
-                      invidunt.
-                    </p>
+                    <p>{home_page.choose_us.support.description}</p>
                   </div>
                 </div>
               </div>
