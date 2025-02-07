@@ -2,18 +2,28 @@ import { title } from "process";
 
 export const home_page = {
   Carousels: {
-    Cranes:
-      "Lifting Your Potential: Innovative Crane Solutions for Every Need. ",
-    Services:
-      "Expert Care for Lifelong Performance: Unmatched Crane Maintenance and Support. ",
-    Spare_Parts:
-      "Genuine Quality. Uninterrupted Operation. Genuine Crane Spare Parts.",
+    Cranes: {
+      description:
+        "Lifting You r Potential: Innovative Crane Solutions for Every Need. ",
+      img: "/images/homepage/hc-1.jpeg",
+    },
+    Services: {
+      description:
+        "Expert Care for Lifelong Performance: Unmatched Crane Maintenance and Support. ",
+      img: "/images/homepage/hc-2.jpeg",
+    },
+    Spare_Parts: {
+      description:
+        "Genuine Quality. Uninterrupted Operation. Genuine Crane Spare Parts.",
+      img: "/images/homepage/hc-3.jpeg",
+    },
   },
   Introduction: {
     Title: "Saif Al Mufaddal: Elevating Industrial Efficiency",
     Paragraph_1:
       "Saif Al Mufaddal is a leading provider of comprehensive industrial solutions, specializing in the design, manufacturing, and installation of high-performance cranes. Our expertise extends across a diverse range of critical lifting equipment, including JIB Cranes, Gantry Cranes, Single and Double EOT Cranes, and Bridge Cranes. We meticulously analyze your unique operational requirements to engineer customized solutions that optimize material flow, enhance productivity, and ensure maximum safety.",
     Paragraph_2: `Beyond our core crane offerings, Saif Al Mufaddal is your single-source partner for all your industrial needs. We supply a comprehensive range of genuine spare parts, including critical components like DSL Line / Bus Bar Systems and Festoon, ensuring the seamless operation and longevity of your existing equipment. Our commitment to excellence extends to our comprehensive maintenance and service programs, encompassing regular inspections, preventative maintenance, and expert troubleshooting to minimize downtime and maximize the return on your investment. "25+ Years of Experience: Delivering Superior Results You Can Count On"`,
+    img: "/images/homepage/h-gtku.webp",
   },
   Our_Services: {
     Cranes: {
@@ -21,18 +31,21 @@ export const home_page = {
       description:
         "We design, manufacture, and install a wide range of industrial cranes, including JIB, Gantry, EOT, and Bridge cranes.",
       url: "/crane",
+      img: "/images/homepage/h-os-1.jpeg",
     },
     Services: {
       title: "Services",
       description:
         "Our services include crane maintenance, annual inspections, and industrial power solutions.",
       url: "/service",
+      img: "/images/homepage/h-os-2.jpg",
     },
     Spare_Parts: {
       title: "Spare_Parts",
       description:
         "Keeping your cranes running smoothly with a full range of spare parts, including DSL Line / Bus Bar Systems, Festoon, and more.",
       url: "/spare-parts",
+      img: "/images/homepage/h-os-3.jpeg",
     },
   },
   Industries_Served:
@@ -62,13 +75,20 @@ export const home_page = {
 export const about_page = {
   first_div: {
     title: "Delivering Exceptional Quality that Exceeds Your Expectations",
-    description:
-      "Seeking Reliable Crane Solutions for Your Business?                                                                                                                         ",
+    description: "Seeking Reliable Crane Solutions for Your Business?",
+    img: "/images/about-us/au-main.webp",
   },
+  connect_with_us: {
+    img1: "/images/about-us/au-d1.jpeg",
+    img2: "/images/about-us/au-d2.jpeg",
+    img3: "/images/about-us/au-d3.jpeg",
+  },
+
   company_started: {
     title: "Saif Al Mufaddal: Elevating Industrial Performance",
     description:
       "Saif Al Mufaddal is a leading provider of comprehensive industrial solutions, specializing in the design, manufacture, installation, and maintenance of high-performance cranes. Our years of experience and dedication to excellence ensure superior craftsmanship and exceptional service.Our expertise extends beyond cranes, encompassing a wide range of industrial electrical services and a comprehensive inventory of genuine crane spare parts. We are dedicated to exceeding client expectations, ensuring optimal performance, and driving operational efficiency across diverse industries.",
+    img3: "/images/about-us/au-cs.jpeg",
   },
   working_progress: {
     first_step: {

@@ -6,14 +6,20 @@ import Link from "next/link";
 const Page = () => {
   return (
     <>
-      <div className="inner-banner text-center">
+      <div
+        className="inner-banner text-center"
+        style={{
+          backgroundImage: `url(${about_page.first_div.img})`,
+          objectFit: "cover",
+        }}
+      >
         <div className="container">
           <ul className="breadcrumb">
             <li>
-              <a href="index-2.html">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="#">Pages</a>
+              <Link href="#">Pages</Link>
             </li>
             <li>
               <span>About</span>
@@ -26,14 +32,51 @@ const Page = () => {
       <section className="cta-style-three about-page-two sec-pad">
         <div className="container">
           <div className="row">
-            <div className="col-lg-4">
-              <img src="images/about-4-1.jpg" alt="Awesome Image" />
+            <div
+              className="col-lg-4"
+              style={{
+                width: "100%",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                src={about_page.connect_with_us.img1}
+                alt="Awesome Image"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+              />
             </div>
-            <div className="col-lg-4">
-              <img src="images/about-4-2.jpg" alt="Awesome Image" />
+            <div
+              className="col-lg-4"
+              style={{
+                width: "100%",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                src={about_page.connect_with_us.img2}
+                alt="Awesome Image"
+                style={{
+                  objectFit: "cover",
+                }}
+              />
             </div>
-            <div className="col-lg-4">
-              <img src="images/about-4-3.jpg" alt="Awesome Image" />
+            <div
+              className="col-lg-4"
+              style={{
+                width: "100%",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                src={about_page.connect_with_us.img3}
+                alt="Awesome Image"
+                style={{
+                  objectFit: "cover",
+                }}
+              />
             </div>
           </div>
           <div className="row">
@@ -53,7 +96,10 @@ const Page = () => {
           <div className="row no-gutters">
             <div className="col-lg-6 clearfix">
               <div className="featured-style-one-image-block float-right">
-                <img src="images/feature-2-1.jpg" alt="Awesome Image" />
+                <img
+                  src={about_page.company_started.img3}
+                  alt="Awesome Image"
+                />
                 <div
                   className="bubbled-text-block wow fadeIn"
                   data-wow-duration="400"

@@ -26,7 +26,7 @@ export default function Home() {
           <div
             className="carousel-item active slide-1"
             style={{
-              backgroundImage: "url(images/banner-4-1.jpg)",
+              backgroundImage: `url(${home_page.Carousels.Cranes.img})`,
               backgroundPosition: "center left",
             }}
           >
@@ -35,7 +35,7 @@ export default function Home() {
                 <div className="box valign-middle">
                   <div className="content text-center">
                     <h3 data-animation="animated fadeInUp">
-                      {home_page.Carousels.Cranes}
+                      {home_page.Carousels.Cranes.description}
                     </h3>
                     <Link
                       data-animation="animated fadeInDown"
@@ -52,7 +52,7 @@ export default function Home() {
           <div
             className="carousel-item slide-2"
             style={{
-              backgroundImage: "url(images/banner-4-2.jpg)",
+              backgroundImage: `url(${home_page.Carousels.Services.img})`,
               backgroundPosition: "top center",
             }}
           >
@@ -61,7 +61,7 @@ export default function Home() {
                 <div className="box valign-middle">
                   <div className="content text-center">
                     <h3 data-animation="animated fadeInUp">
-                      {home_page.Carousels.Services}
+                      {home_page.Carousels.Services.description}
                     </h3>
                     <Link
                       data-animation="animated fadeInDown"
@@ -78,8 +78,8 @@ export default function Home() {
           <div
             className="carousel-item slide-3"
             style={{
-              backgroundImage: "url(images/banner-4-2.jpg)",
               backgroundPosition: "top center",
+              backgroundImage: `url(${home_page.Carousels.Spare_Parts.img})`,
             }}
           >
             <div className="carousel-caption">
@@ -87,7 +87,7 @@ export default function Home() {
                 <div className="box valign-middle">
                   <div className="content text-center">
                     <h3 data-animation="animated fadeInUp">
-                      {home_page.Carousels.Spare_Parts}
+                      {home_page.Carousels.Spare_Parts.description}
                     </h3>
                     <Link
                       data-animation="animated fadeInDown"
@@ -113,7 +113,7 @@ export default function Home() {
           <span className="sr-only">Previous</span>
         </Link>
         <Link
-          className="carousel-control-next carousel-control-one-next"
+          className="carousel-control-next carousel-control-one-next "
           href="#minimal-bootstrap-carousel"
           role="button"
           data-slide="next"
@@ -144,8 +144,23 @@ export default function Home() {
               </div>
             </div>
             <div className="col-lg-6">
-              <div className="image-block">
-                <img src="images/about-2-1.jpg" alt="Awesome Image" />
+              <div
+                className="image-block"
+                style={{
+                  width: "100%",
+                  overflow: "hidden",
+                  height: "300px",
+                }}
+              >
+                <img
+                  src={home_page.Introduction.img}
+                  alt="Awesome Image"
+                  style={{
+                    objectFit: "cover",
+                    height: "100%",
+                    width: "100%",
+                  }}
+                />
               </div>
               <div className="image-block-text gray-bg">
                 <p>{home_page.Introduction.Paragraph_2}</p>
@@ -167,7 +182,10 @@ export default function Home() {
             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div className="single-project-style-one">
                 <div className="image-block">
-                  <img src="images/project-1-2.jpg" alt="Awesome Image" />
+                  <img
+                    src={home_page.Our_Services.Cranes.img}
+                    alt="Awesome Image"
+                  />
                   <div className="overlay">
                     <div className="box">
                       <div className="content">
@@ -190,7 +208,13 @@ export default function Home() {
             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div className="single-project-style-one">
                 <div className="image-block">
-                  <img src="images/project-1-3.jpg" alt="Awesome Image" />
+                  <img
+                    style={{
+                      objectFit: "cover",
+                    }}
+                    src={home_page.Our_Services.Services.img}
+                    alt="Awesome Image"
+                  />
                   <div className="overlay">
                     <div className="box">
                       <div className="content">
@@ -213,7 +237,10 @@ export default function Home() {
             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div className="single-project-style-one">
                 <div className="image-block">
-                  <img src="images/project-1-4.jpg" alt="Awesome Image" />
+                  <img
+                    src={home_page.Our_Services.Spare_Parts.img}
+                    alt="Awesome Image"
+                  />
                   <div className="overlay">
                     <div className="box">
                       <div className="content">
