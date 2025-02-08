@@ -6,13 +6,7 @@ import Link from "next/link";
 const Page = () => {
   return (
     <>
-      <div
-        className="inner-banner text-center"
-        style={{
-          backgroundImage: `url(${about_page.first_div.img})`,
-          objectFit: "cover",
-        }}
-      >
+      <div className="inner-banner text-center" style={{}}>
         <div className="container">
           <ul className="breadcrumb">
             <li>

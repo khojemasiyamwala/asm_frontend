@@ -1,19 +1,37 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { getDocumentById } from "../../services/firebase";
+import { addDocument, getDocumentById } from "../../services/firebase";
 import ReactOwlCarousel from "react-owl-carousel";
 
 const ProductDeatil = () => {
   const parms = useParams();
   const [formData, setFormData] = useState<any>();
-  console.log("🚀 ~ ProductDeatil ~ formData:", formData);
   useEffect(() => {
     (async () => {
       const doc: any = await getDocumentById("products", parms.id);
       setFormData(doc);
     })();
   }, []);
+  const [formData1, setFormData1] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log("🚀 ~ handleSubmit ~ res:", formData1);
+    const res: any = await addDocument("contact-us", formData1);
+    console.log("🚀 ~ handleSubmit ~ res:", res);
+    if (res.id) {
+      setFormData1({
+        name: "",
+        email: "",
+        message: "",
+      });
+      alert("submitted sucessfully");
+    }
+  };
   return formData ? (
     <>
       <div className="inner-banner text-center">
@@ -52,18 +70,43 @@ const ProductDeatil = () => {
                 <div className="contact-form-widget">
                   <h3>Get a Free Quote</h3>
                   <form
-                    action="https://ashik.templatepath.net/facdori-main-html/inc/sendemail.php"
+                    onSubmit={handleSubmit}
                     className="contact-form-validated"
                   >
-                    <input type="text" name="name" placeholder="Full Name" />
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Full Name"
+                      value={formData1.name}
+                      onChange={(e) => {
+                        setFormData1({
+                          ...formData1,
+                          name: e.target.value,
+                        });
+                      }}
+                    />
                     <input
                       type="text"
                       name="email"
                       placeholder="Enter Email Address"
+                      value={formData1.email}
+                      onChange={(e) => {
+                        setFormData1({
+                          ...formData1,
+                          email: e.target.value,
+                        });
+                      }}
                     />
                     <textarea
                       placeholder="Write Message"
                       name="message"
+                      value={formData1.message}
+                      onChange={(e) => {
+                        setFormData1({
+                          ...formData1,
+                          message: e.target.value,
+                        });
+                      }}
                     ></textarea>
                     <button type="submit" className="thm-btn">
                       Send Message
@@ -74,9 +117,34 @@ const ProductDeatil = () => {
             </div>
             <div className="col-lg-8">
               <div className="single-service-page-content">
+                <img
+                  style={{
+                    height: "450px",
+                    width: "100%",
+                  }}
+                  src={formData.image}
+                  alt="Awesome Image"
+                />
+
+                <br />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: formData.paraAfterMainImage,
+                  }}
+                  className="dangerousImportdiv"
+                />
+                <br />
                 <ReactOwlCarousel
                   className="owl-theme"
-                  items={1}
+                  items={
+                    formData.subImages.filter((img: any) => {
+                      return img != "";
+                    }).length >= 3
+                      ? 3
+                      : formData.subImages.filter((img: any) => {
+                          return img != "";
+                        }).length
+                  }
                   autoplay={true}
                   autoplayTimeout={2000} // Interval between slides (in ms)
                   autoplaySpeed={1000} // Speed of the slide transition
@@ -90,7 +158,6 @@ const ProductDeatil = () => {
                       return img != "";
                     })
                     .map((img: any) => {
-                      console.log("🚀 ~ ProductDeatil ~ img:", img);
                       return (
                         <div className="item">
                           <img src={img} alt="Awesome Image" />
@@ -98,27 +165,13 @@ const ProductDeatil = () => {
                       );
                     })}
                 </ReactOwlCarousel>
-
                 <br />
-                <br />
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: formData.paraAfterMainImage,
-                  }}
-                />
-                <img
-                  style={{
-                    height: "450px",
-                    width: "100%",
-                  }}
-                  src={formData.image}
-                  alt="Awesome Image"
-                />
                 <br />
                 <div
                   dangerouslySetInnerHTML={{
                     __html: formData.paraAfterSubImages,
                   }}
+                  className="dangerousImportdiv"
                 />
               </div>
             </div>

@@ -5,6 +5,9 @@ import Link from "next/link";
 import Script from "next/script";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { useEffect, useState } from "react";
+import { addDocument, db } from "../../services/firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 export default function RootLayout({
   children,
@@ -13,6 +16,64 @@ export default function RootLayout({
 }>) {
   const path = usePathname();
   console.log("🚀 ~ path:", path);
+  const [modelOpen, setModelOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    ip: "",
+  });
+  useEffect(() => {
+    async function getMyIP() {
+      try {
+        const response = await fetch("https://api64.ipify.org?format=json");
+        const data = await response.json();
+
+        console.log("Your IP Address:", data.ip);
+        setFormData({
+          ...formData,
+          ip: data.ip,
+        });
+
+        const q = query(
+          collection(db, "contact-us"),
+          where("ip", "==", data.ip)
+        );
+
+        const docSnap = await getDocs(q);
+
+        const data1: any = [];
+        docSnap.forEach((element) => {
+          const a: any = element.data();
+          a._id = element.id;
+          data1.push(a);
+        });
+        if (!data1[0]) {
+          setModelOpen(true);
+        }
+      } catch (error) {
+        console.error("Error fetching IP:", error);
+      }
+    }
+
+    getMyIP();
+  }, []);
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log("🚀 ~ handleSubmit ~ res:", formData);
+    const res: any = await addDocument("contact-us", formData);
+    console.log("🚀 ~ handleSubmit ~ res:", res);
+    if (res.id) {
+      alert("Message sent successfully");
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+        ip: "",
+      });
+      setModelOpen(false);
+    }
+  };
   return (
     <html
       lang="en"
@@ -67,35 +128,114 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/responsive.css"></link>
       </head>
       <body>
+        {modelOpen ? (
+          <div
+            style={{
+              width: "100vw",
+              height: "100vh",
+              background: "#0000008a",
+              zIndex: "10000000",
+              position: "fixed",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <>
+              <section
+                className="contact-form-wrapper"
+                style={{
+                  width: "50vw",
+                  height: "fit-content",
+                  background: "#a7a5a5",
+                  borderRadius: "20px",
+                }}
+              >
+                <form
+                  style={{
+                    padding: "70px",
+                  }}
+                  className="contact-form-validated contact-form"
+                >
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    name="name"
+                    value={formData.name}
+                    onChange={(e) => {
+                      setFormData({ ...formData, name: e.target.value });
+                    }}
+                  />
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Enter Email Address"
+                    onChange={(e) => {
+                      setFormData({ ...formData, email: e.target.value });
+                    }}
+                    value={formData.email}
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Write Message"
+                    onChange={(e) => {
+                      setFormData({
+                        ...formData,
+                        message: e.target.value,
+                      });
+                    }}
+                    value={formData.message}
+                  ></textarea>
+                  <button
+                    onClick={(e: any) => {
+                      handleSubmit(e);
+                    }}
+                    className="thm-btn"
+                  >
+                    Send message
+                  </button>
+                </form>
+              </section>
+            </>
+          </div>
+        ) : (
+          <></>
+        )}
         <header className="site-header header-four">
           <div className="lower-bar">
             <div className="container clearfix">
               <div className="logo-box">
-                <Link href="/index-2.html">
-                  <img src="/images/logo-2-1.png" alt="Awesome Image" />
+                <Link href="/">
+                  <img
+                    style={{
+                      height: "150px",
+                    }}
+                    src="/images/logo/logo.png"
+                    alt="Awesome Image"
+                  />
                 </Link>
               </div>
               <div className="left-content float-left">
                 <div className="single-header-contact-info">
                   <i className="facdori-icon-clock"></i>
-                  <h3>Mon to Fri 9:00am to 6:00pm</h3>
+                  <h3>Mon to Sat 9:00am to 9:00pm</h3>
                   <p>Working hours</p>
                 </div>
                 <div className="single-header-contact-info">
-                  <i className="facdori-icon-phone-call-1"></i>
-                  <h3>666 888 0000</h3>
-                  <p>Phone line</p>
+                  <i className="facdori-icon-message"></i>
+                  <h3>services.saifmufaddal@gmail.com</h3>
+                  <p>Email address</p>
                 </div>
               </div>
               <div className="right-content float-right">
                 <div className="single-header-contact-info">
-                  <i className="facdori-icon-message"></i>
-                  <h3>needhelp@facdori.com</h3>
-                  <p>Email address</p>
+                  <i className="facdori-icon-phone-call-1"></i>
+                  <h3> +91 77788 55752</h3>
+                  <p>Phone line</p>
                 </div>
                 <div className="single-header-contact-info">
                   <i className="facdori-icon-placeholder-2"></i>
-                  <h3>66 Broklyn Street USA</h3>
+                  <h3>306 A, Zamarud, Khatriwad, Surat, 395003</h3>
                   <p>Visit us</p>
                 </div>
               </div>
@@ -195,39 +335,33 @@ export default function RootLayout({
                     <div className="link-wrapper clearfix">
                       <ul className="link-lists">
                         <li>
-                          <Link href="/#">Why Choose</Link>
+                          <Link href="/#">Home</Link>
                         </li>
                         <li>
                           <Link href="/#">About Us</Link>
                         </li>
                         <li>
-                          <Link href="/#">Case Studies</Link>
+                          <Link href="/#">Crane</Link>
                         </li>
                         <li>
-                          <Link href="/#">Our Services</Link>
+                          <Link href="/#">Services</Link>
                         </li>
                         <li>
-                          <Link href="/#">Sitemap</Link>
+                          <Link href="/#">Spare parts</Link>
                         </li>
                       </ul>
                       <ul className="link-lists">
                         <li>
-                          <Link href="/#">Price Guide</Link>
+                          <Link href="/#">Blogs</Link>
                         </li>
                         <li>
                           <Link href="/#">Contact Us</Link>
-                        </li>
-                        <li>
-                          <Link href="/#">Privacy Policy</Link>
-                        </li>
-                        <li>
-                          <Link href="/#">Terms of Use</Link>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-3 col-md-6">
+                {/* <div className="col-lg-3 col-md-6">
                   <div className="footer-widget service-links-widget">
                     <div className="widget-title">
                       <h3>Services</h3>
@@ -250,48 +384,28 @@ export default function RootLayout({
                       </li>
                     </ul>
                   </div>
-                </div>
+                </div> */}
                 <div className="col-lg-3 col-md-6">
                   <div className="footer-widget contact-widget">
                     <ul className="contact-infos">
                       <li>
                         <i className="facdori-icon-placeholder-2"></i>
-                        66 Road Broklyn Street, 600 <br /> New York, USA
+                        306 A, Zamarud Residency <br /> Indarpura Khatriwad,
+                        <br /> Surat, 395003
                       </li>
                       <li>
-                        <i className="facdori-icon-message"></i>
-                        needhelp@facdori.com
+                        <a href="mailto:services.saifmufaddal@gmail.com">
+                          <i className="facdori-icon-message"></i>
+                          services.saifmufaddal@gmail.com
+                        </a>
                       </li>
                       <li>
-                        <i className="facdori-icon-phone-call-1"></i>
-                        666 888 0000
+                        <a href="tel:7778855752">
+                          <i className="facdori-icon-phone-call-1"></i>
+                          +91 77788 55752
+                        </a>
                       </li>
                     </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bottom-footer">
-            <div className="container ">
-              <div className="container-inner clearfix">
-                <div className="left-content float-left">
-                  <p>&copy; Copyright 2019 by TemplatePath.net</p>
-                </div>
-                <div className="right-content float-right">
-                  <div className="social">
-                    <Link href="/#">
-                      <i className="fa fa-facebook-f"></i>
-                    </Link>
-                    <Link href="/#">
-                      <i className="fa fa-twitter"></i>
-                    </Link>
-                    <Link href="/#">
-                      <i className="fa fa-linkedin"></i>
-                    </Link>
-                    <Link href="/#">
-                      <i className="fa fa-youtube-play"></i>
-                    </Link>
                   </div>
                 </div>
               </div>

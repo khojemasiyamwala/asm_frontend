@@ -139,7 +139,7 @@ export default function Home() {
                     <i className="facdori-icon-phone-call-1"></i>
                   </div>
                   <p>Let’s Call us to Get a Free Estimate</p>
-                  <h3>666 888 0000</h3>
+                  <h3>+91 77788 55752</h3>
                 </div>
               </div>
             </div>
@@ -163,7 +163,16 @@ export default function Home() {
                 />
               </div>
               <div className="image-block-text gray-bg">
-                <p>{home_page.Introduction.Paragraph_2}</p>
+                <p>{home_page.Introduction.Paragraph_2} </p>
+                <span
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    color: "#002c42",
+                  }}
+                >
+                  {home_page.Introduction.Paragraph_2_bold}
+                </span>
               </div>
             </div>
           </div>

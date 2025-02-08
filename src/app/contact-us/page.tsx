@@ -12,7 +12,7 @@ const Page = () => {
     e.preventDefault();
     console.log("🚀 ~ handleSubmit ~ res:", formData);
     const res: any = await addDocument("contact-us", formData);
-    console.log("🚀 ~ handleSubmit ~ res:", res)
+    console.log("🚀 ~ handleSubmit ~ res:", res);
     if (res.id) {
       alert("Message sent successfully");
       setFormData({

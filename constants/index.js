@@ -22,7 +22,9 @@ export const home_page = {
     Title: "Saif Al Mufaddal: Elevating Industrial Efficiency",
     Paragraph_1:
       "Saif Al Mufaddal is a leading provider of comprehensive industrial solutions, specializing in the design, manufacturing, and installation of high-performance cranes. Our expertise extends across a diverse range of critical lifting equipment, including JIB Cranes, Gantry Cranes, Single and Double EOT Cranes, and Bridge Cranes. We meticulously analyze your unique operational requirements to engineer customized solutions that optimize material flow, enhance productivity, and ensure maximum safety.",
-    Paragraph_2: `Beyond our core crane offerings, Saif Al Mufaddal is your single-source partner for all your industrial needs. We supply a comprehensive range of genuine spare parts, including critical components like DSL Line / Bus Bar Systems and Festoon, ensuring the seamless operation and longevity of your existing equipment. Our commitment to excellence extends to our comprehensive maintenance and service programs, encompassing regular inspections, preventative maintenance, and expert troubleshooting to minimize downtime and maximize the return on your investment. "25+ Years of Experience: Delivering Superior Results You Can Count On"`,
+    Paragraph_2: `Beyond our core crane offerings, Saif Al Mufaddal is your single-source partner for all your industrial needs. We supply a comprehensive range of genuine spare parts, including critical components like DSL Line / Bus Bar Systems and Festoon, ensuring the seamless operation and longevity of your existing equipment. Our commitment to excellence extends to our comprehensive maintenance and service programs, encompassing regular inspections, preventative maintenance, and expert troubleshooting to minimize downtime and maximize the return on your investment.`,
+    Paragraph_2_bold:
+      "25+ Years of Experience: Delivering Superior Results You Can Count On",
     img: "/images/homepage/h-gtku.webp",
   },
   Our_Services: {

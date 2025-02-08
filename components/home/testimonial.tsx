@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 const ReactOwlCarousel = dynamic(() => import("react-owl-carousel"), {
   ssr: false,
 });
@@ -18,9 +19,9 @@ function Testimonial() {
                   customers choose us.
                 </h2>
               </div>
-              <a href="#" className="thm-btn">
-                View All testimonials
-              </a>
+              <Link href="/contact-us" className="thm-btn">
+                Contact Us
+              </Link>
             </div>
           </div>
           <div className="col-lg-6">
