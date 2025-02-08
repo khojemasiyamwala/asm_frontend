@@ -65,7 +65,9 @@ const OtherSpareParts = ({ type, url }: any) => {
           <div className="row">
             {d.length ? (
               d?.map((item: any, index: number) => (
-                <Card item={item} url={url} />
+                <div className="col-lg-4 col-md-6 col-sm-6">
+                  <Card item={item} url={url} />
+                </div>
               ))
             ) : (
               <div
