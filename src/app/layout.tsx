@@ -317,9 +317,9 @@ export default function RootLayout({
                       <h3>About Us</h3>
                     </div>
                     <p>
-                      We are the leaders in the building industries and
-                      factories. We’re wordl wide. We never give up on the
-                      challenges.
+                      Engineered Lifting. Global Reach. We build, install, and
+                      service cranes, providing parts and solutions worldwide.
+                      Challenges? We rise to them
                     </p>
                     <img src="/images/footer-map-1-1.jpg" alt="Awesome Image" />
                     <Link href="/#" className="find-us-link">

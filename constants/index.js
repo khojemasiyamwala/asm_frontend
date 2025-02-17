@@ -5,17 +5,17 @@ export const home_page = {
     Cranes: {
       description:
         "Lifting You r Potential: Innovative Crane Solutions for Every Need. ",
-      img: "/images/homepage/hc-1.jpeg",
+      img: "/images/homepage/hc-1.jpg",
     },
     Services: {
       description:
         "Expert Care for Lifelong Performance: Unmatched Crane Maintenance and Support. ",
-      img: "/images/homepage/hc-2.jpeg",
+      img: "/images/homepage/hc-2.jpg",
     },
     Spare_Parts: {
       description:
         "Genuine Quality. Uninterrupted Operation. Genuine Crane Spare Parts.",
-      img: "/images/homepage/hc-3.jpeg",
+      img: "/images/homepage/hc-3.jpg",
     },
   },
   Introduction: {

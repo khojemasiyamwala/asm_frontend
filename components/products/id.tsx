@@ -56,9 +56,8 @@ const ProductDeatil = () => {
                 <div className="contact-infos-widget">
                   <h3>Need Help?</h3>
                   <p>
-                    Speak with a human to filling out a form? call corporate
-                    office and we will connect you with a team member who can
-                    help.
+                    Need a lifting solution? Call us. Our experts are ready to
+                    engineer the perfect crane for your needs.
                   </p>
                   <div className="phone-box">
                     <i className="facdori-icon-phone-call-1"></i>
