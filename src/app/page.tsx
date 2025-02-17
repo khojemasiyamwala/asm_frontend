@@ -185,7 +185,7 @@ export default function Home() {
         <div className="container-fluid p-0">
           <div className="sec-title text-center">
             <span className="tag-line">Our Services</span>
-            <h2>Industries Served</h2>
+            <h2>Our Service</h2>
           </div>
           <div className="row no-gutters">
             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
