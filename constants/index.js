@@ -43,7 +43,7 @@ export const home_page = {
       img: "/images/homepage/h-os-2.jpg",
     },
     Spare_Parts: {
-      title: "Spare_Parts",
+      title: "Spare Parts",
       description:
         "Keeping your cranes running smoothly with a full range of spare parts, including DSL Line / Bus Bar Systems, Festoon, and more.",
       url: "/spare-parts",

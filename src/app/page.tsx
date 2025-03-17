@@ -199,7 +199,13 @@ export default function Home() {
                     <div className="box">
                       <div className="content">
                         <div className="inner-content">
-                          <h3>{home_page.Our_Services.Cranes.title}</h3>
+                          <h3
+                            style={{
+                              color: "white",
+                            }}
+                          >
+                            {home_page.Our_Services.Cranes.title}
+                          </h3>
                           <p>{home_page.Our_Services.Cranes.description}</p>
                           <Link
                             href={home_page.Our_Services.Cranes.url}
@@ -228,7 +234,13 @@ export default function Home() {
                     <div className="box">
                       <div className="content">
                         <div className="inner-content">
-                          <h3>{home_page.Our_Services.Services.title}</h3>
+                          <h3
+                            style={{
+                              color: "white",
+                            }}
+                          >
+                            {home_page.Our_Services.Services.title}
+                          </h3>
                           <p>{home_page.Our_Services.Services.description}</p>
                           <Link
                             href={home_page.Our_Services.Services.url}
@@ -254,7 +266,13 @@ export default function Home() {
                     <div className="box">
                       <div className="content">
                         <div className="inner-content">
-                          <h3>{home_page.Our_Services.Spare_Parts.title}</h3>
+                          <h3
+                            style={{
+                              color: "white",
+                            }}
+                          >
+                            {home_page.Our_Services.Spare_Parts.title}
+                          </h3>
                           <p>
                             {home_page.Our_Services.Spare_Parts.description}
                           </p>
