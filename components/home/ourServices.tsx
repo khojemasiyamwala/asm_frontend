@@ -33,8 +33,8 @@ function OurServices() {
     <section className="sec-pad gray-bg">
       <div className="container">
         <div className="sec-title text-center">
-          <span className="tag-line">Our Projects</span>
-          <h2>Explore Recent Projects</h2>
+          <span className="tag-line">Our Products</span>
+          <h2>Our Products</h2>
          
         </div>
         <div className="service-style-one-carousel">

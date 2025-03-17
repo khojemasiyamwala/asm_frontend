@@ -185,7 +185,7 @@ const Page = () => {
 
       <Testimonial />
 
-      <WorkedWith />
+      {/* <WorkedWith /> */}
     </>
   );
 };

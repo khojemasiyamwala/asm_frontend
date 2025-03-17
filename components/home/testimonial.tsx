@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { testimonials } from "../../constants";
 const ReactOwlCarousel = dynamic(() => import("react-owl-carousel"), {
   ssr: false,
 });
@@ -37,57 +38,26 @@ function Testimonial() {
                   loop
                   margin={10}
                 >
-                  <div className="single-testimonial-style-three">
-                    <i className="facdori-icon-icon"></i>
-                    <p>
-                      This is due to their excellent service, competitive
-                      pricing and customer support. It’s throughly refresing to
-                      get such a personal touch.
-                    </p>
-                    <div className="client-block">
-                      <div className="image-block">
-                        <img src="images/testi-1-1.jpg" alt="Awesome Image" />
+                  {testimonials.map((item, index) => {
+                    return (
+                      <div className="single-testimonial-style-three">
+                        <i className="facdori-icon-icon"></i>
+                        <p>{item.review}</p>
+                        <div className="client-block">
+                          {/* <div className="image-block">
+                            <img
+                              src="images/testi-1-2.jpg"
+                              alt="Awesome Image"
+                            />
+                          </div> */}
+                          <div className="text-block">
+                            <h3>{item.name}</h3>
+                            <span>{item.our}</span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="text-block">
-                        <h3>Cliff Mun</h3>
-                        <span>Our Customer</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="single-testimonial-style-three">
-                    <i className="facdori-icon-icon"></i>
-                    <p>
-                      This is due to their excellent service, competitive
-                      pricing and customer support. It’s throughly refresing to
-                      get such a personal touch.
-                    </p>
-                    <div className="client-block">
-                      <div className="image-block">
-                        <img src="images/testi-1-2.jpg" alt="Awesome Image" />
-                      </div>
-                      <div className="text-block">
-                        <h3>Kaycee Thyfault</h3>
-                        <span>Our Customer</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="single-testimonial-style-three">
-                    <i className="facdori-icon-icon"></i>
-                    <p>
-                      This is due to their excellent service, competitive
-                      pricing and customer support. It’s throughly refresing to
-                      get such a personal touch.
-                    </p>
-                    <div className="client-block">
-                      <div className="image-block">
-                        <img src="images/testi-1-3.jpg" alt="Awesome Image" />
-                      </div>
-                      <div className="text-block">
-                        <h3>Yajaira Tarbet</h3>
-                        <span>Our Customer</span>
-                      </div>
-                    </div>
-                  </div>
+                    );
+                  })}
                 </ReactOwlCarousel>
               </div>
             </div>

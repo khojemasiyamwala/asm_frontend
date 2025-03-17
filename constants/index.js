@@ -25,7 +25,7 @@ export const home_page = {
     Paragraph_2: `Beyond our core crane offerings, Saif Al Mufaddal is your single-source partner for all your industrial needs. We supply a comprehensive range of genuine spare parts, including critical components like DSL Line / Bus Bar Systems and Festoon, ensuring the seamless operation and longevity of your existing equipment. Our commitment to excellence extends to our comprehensive maintenance and service programs, encompassing regular inspections, preventative maintenance, and expert troubleshooting to minimize downtime and maximize the return on your investment.`,
     Paragraph_2_bold:
       "25+ Years of Experience: Delivering Superior Results You Can Count On",
-    img: "/images/homepage/h-gtku.webp",
+    img: "/images/homepage/h-gtku.jpg",
   },
   Our_Services: {
     Cranes: {
@@ -33,7 +33,7 @@ export const home_page = {
       description:
         "We design, manufacture, and install a wide range of industrial cranes, including JIB, Gantry, EOT, and Bridge cranes.",
       url: "/crane",
-      img: "/images/homepage/h-os-1.jpeg",
+      img: "/images/homepage/h-os-1.jpg",
     },
     Services: {
       title: "Services",
@@ -47,7 +47,7 @@ export const home_page = {
       description:
         "Keeping your cranes running smoothly with a full range of spare parts, including DSL Line / Bus Bar Systems, Festoon, and more.",
       url: "/spare-parts",
-      img: "/images/homepage/h-os-3.jpeg",
+      img: "/images/homepage/h-os-3.jpg",
     },
   },
   Industries_Served:
@@ -81,9 +81,9 @@ export const about_page = {
     img: "/images/about-us/au-main.webp",
   },
   connect_with_us: {
-    img1: "/images/about-us/au-d1.jpeg",
-    img2: "/images/about-us/au-d2.jpeg",
-    img3: "/images/about-us/au-d3.jpeg",
+    img1: "/images/about-us/au-d1.jpg",
+    img2: "/images/about-us/au-d2.jpg",
+    img3: "/images/about-us/au-d3.jpg",
   },
 
   company_started: {
@@ -114,3 +114,35 @@ export const about_page = {
     },
   },
 };
+export const testimonials = [
+  {
+    name: "Shreeji Steel",
+    review:
+      "Saif Al Mufaddal helped us find the perfect solution for our factory. Very reliable.",
+    our: "Our Customer",
+  },
+  {
+    name: "Usha Die Casting",
+    review:
+      "We needed a custom gantry crane, and they delivered. The quality is excellent, and the installation was smooth.",
+    our: "Our Customer",
+  },
+  {
+    name: "Fabtech Engineering",
+    review:
+      "Their maintenance service is top-notch. They keep our cranes running perfectly. Highly recommend their spare parts too.",
+    our: "Our Customer",
+  },
+  {
+    name: "Tinita Engineering",
+    review:
+      "Very happy with the EOT crane we bought. It's made our work much easier. Good customer service.",
+    our: "Our Customer",
+  },
+  {
+    name: "Metro Steel",
+    review:
+      "Good quality parts, and fast service. They helped us keep our production going.",
+    our: "Our Customer",
+  },
+];

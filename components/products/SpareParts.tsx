@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./card";
 import { db, getAllDocuments } from "../../services/firebase/index";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import PopupModal from "../PopupModal";
 const OtherSpareParts = ({ type, url }: any) => {
   const [d, setD] = useState([]);
   const [osp, setOSP] = useState([]);
@@ -47,6 +48,8 @@ const OtherSpareParts = ({ type, url }: any) => {
   }, []);
   return (
     <>
+      <PopupModal />
+
       <div className="inner-banner text-center">
         <div className="container">
           <ul className="breadcrumb">

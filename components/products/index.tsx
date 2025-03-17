@@ -4,6 +4,7 @@ import Card from "./card";
 import { db, getAllDocuments } from "../../services/firebase/index";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useRouter } from "next/navigation";
+import PopupModal from "../PopupModal";
 const Product = ({ type, url }: any) => {
   const [d, setD] = useState([]);
   console.log("🚀 ~ Product ~ d:", d);
@@ -26,9 +27,13 @@ const Product = ({ type, url }: any) => {
       setD(data);
     })();
   }, [type]);
+
+
+
   const router = useRouter();
   return (
     <>
+    <PopupModal/>
       <div className="inner-banner text-center">
         <div className="container">
           <ul className="breadcrumb">
