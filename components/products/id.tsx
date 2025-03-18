@@ -3,7 +3,6 @@ import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { addDocument, getDocumentById } from "../../services/firebase";
 import ReactOwlCarousel from "react-owl-carousel";
-import PopupModal from "../PopupModal";
 
 const ProductDeatil = () => {
   const parms = useParams();
@@ -35,7 +34,6 @@ const ProductDeatil = () => {
   };
   return formData ? (
     <>
-      <PopupModal />
 
       <div className="inner-banner text-center">
         <div className="container">
