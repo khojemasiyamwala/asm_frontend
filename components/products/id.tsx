@@ -20,9 +20,7 @@ const ProductDeatil = () => {
   });
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log("🚀 ~ handleSubmit ~ res:", formData1);
     const res: any = await addDocument("contact-us", formData1);
-    console.log("🚀 ~ handleSubmit ~ res:", res);
     if (res.id) {
       setFormData1({
         name: "",
@@ -34,7 +32,6 @@ const ProductDeatil = () => {
   };
   return formData ? (
     <>
-
       <div className="inner-banner text-center">
         <div className="container">
           <ul className="breadcrumb">
@@ -62,7 +59,7 @@ const ProductDeatil = () => {
                   </p>
                   <div className="phone-box">
                     <i className="facdori-icon-phone-call-1"></i>
-                    <span>666 888 0000</span>
+                    <span> +91 77788 55752</span>
                   </div>
                 </div>
               </div>

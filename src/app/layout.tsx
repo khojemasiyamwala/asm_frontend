@@ -8,6 +8,8 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useEffect, useState } from "react";
 import { addDocument, db } from "../../services/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { useWindowWidth } from "@react-hook/window-size";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export default function RootLayout({
   children,
@@ -15,7 +17,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const path = usePathname();
-  console.log("🚀 ~ path:", path);
   const [modelOpen, setModelOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -52,7 +53,6 @@ export default function RootLayout({
           path.includes("crane") ||
           path.includes("spare-parts") ||
           path.includes("service");
-        console.log("🚀 ~ getMyIP ~ isPath:", !data1[0] && isPath, !data1[0]);
         if (!data1[0] && isPath) {
           setModelOpen(true);
         }
@@ -65,9 +65,7 @@ export default function RootLayout({
   }, [path]);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log("🚀 ~ handleSubmit ~ res:", formData);
     const res: any = await addDocument("contact-us", formData);
-    console.log("🚀 ~ handleSubmit ~ res:", res);
     if (res.id) {
       alert("Message sent successfully");
       setFormData({
@@ -79,6 +77,8 @@ export default function RootLayout({
       setModelOpen(false);
     }
   };
+  const onlyWidth = useWindowWidth();
+
   return (
     <html
       lang="en"
@@ -86,6 +86,7 @@ export default function RootLayout({
         overflowX: "hidden",
       }}
     >
+      <GoogleTagManager gtmId="GTM-KTGDLSKH" />
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -150,15 +151,15 @@ export default function RootLayout({
               <section
                 className="contact-form-wrapper"
                 style={{
-                  width: "50vw",
+                  width: onlyWidth > 768 ? "50vw" : "90vw",
                   height: "fit-content",
                   background: "#a7a5a5",
-                  borderRadius: "20px",
+                  borderRadius: onlyWidth > 768 ? "20px" : "0px",
                 }}
               >
                 <form
                   style={{
-                    padding: "70px",
+                    padding: onlyWidth > 768 ? "70px" : "20px",
                   }}
                   className="contact-form-validated contact-form"
                 >
@@ -228,7 +229,7 @@ export default function RootLayout({
                 </div>
                 <div className="single-header-contact-info">
                   <i className="facdori-icon-message"></i>
-                  <h3>services.saifmufaddal@gmail.com</h3>
+                  <h3>saifmufaddal@gmail.com</h3>
                   <p>Email address</p>
                 </div>
               </div>
@@ -246,7 +247,7 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-          <nav className="navbar navbar-expand-lg navbar-light header-navigation stricky">
+          <nav className="navbar navbar-expand-lg navbar-light header-navigation stricky stricky-menu">
             <div className="container clearfix">
               <div className="logo-box clearfix">
                 <button className="menu-toggler" data-target="#main-nav-bar">
@@ -310,6 +311,141 @@ export default function RootLayout({
               </div>
             </div>
           </nav>
+          {/* <nav className="navbar navbar-expand-lg navbar-light header-navigation stricky stricky-menu">
+            <div className="container clearfix">
+              <div className="logo-box clearfix">
+                <button className="menu-toggler" data-target="#main-nav-bar-2">
+                  <span className="fa fa-bars"></span>
+                </button>
+              </div>
+
+              <div className="main-navigation" id="main-nav-bar-2">
+                <ul className="navigation-box">
+                  <li className="current">
+                    <a href="index-2.html">Home</a>
+                    <ul className="sub-menu">
+                      <li>
+                        <a href="index-2.html">Home One</a>
+                      </li>
+                      <li>
+                        <a href="index2.html">Home Two</a>
+                      </li>
+                      <li>
+                        <a href="index3.html">Home Three</a>
+                      </li>
+                      <li>
+                        <a href="index4.html">Home Four</a>
+                      </li>
+                      <li>
+                        <a href="index4.html">Header Versions</a>
+                        <ul className="sub-menu">
+                          <li>
+                            <a href="index-2.html">Header One</a>
+                          </li>
+                          <li>
+                            <a href="index2.html">Header Two</a>
+                          </li>
+                          <li>
+                            <a href="index3.html">Header Three</a>
+                          </li>
+                          <li>
+                            <a href="index4.html">Header Four</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">Pages</a>
+                    <ul className="sub-menu">
+                      <li>
+                        <a href="about.html">About Us 01 </a>
+                      </li>
+                      <li>
+                        <a href="about2.html">About Us 02</a>
+                      </li>
+                      <li>
+                        <a href="whychoose.html">Why Choose</a>
+                      </li>
+                      <li>
+                        <a href="testimonials.html">Testimonials</a>
+                      </li>
+                      <li>
+                        <a href="history.html">History</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="services.html">Our Services</a>
+                    <ul className="sub-menu">
+                      <li>
+                        <a href="service.html">Services 01</a>
+                      </li>
+                      <li>
+                        <a href="service2.html">Services 02</a>
+                      </li>
+                      <li>
+                        <a href="service3.html">Services 03</a>
+                      </li>
+                      <li>
+                        <a href="service-details.html">Service Details</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="project.html">Recent Projects</a>
+                    <ul className="sub-menu">
+                      <li>
+                        <a href="project.html">Projects 01</a>
+                      </li>
+                      <li>
+                        <a href="project2.html">Project 02</a>
+                      </li>
+                      <li>
+                        <a href="project-details.html">Project Details</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="news.html">News</a>
+                    <ul className="sub-menu">
+                      <li>
+                        <a href="news.html">News Grid</a>
+                      </li>
+                      <li>
+                        <a href="news-2col.html">News 2 Column</a>
+                      </li>
+                      <li>
+                        <a href="news-sidebar.html">News Right Sidebar</a>
+                      </li>
+                      <li>
+                        <a href="single-news.html">News Details</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="contact.html">Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="right-side-box">
+                <select className="selectpicker" data-width="fit">
+                  <option data-content='<span className="flag-icon flag-icon-gb flag-icon-squared"></span> Eng'>
+                    Eng
+                  </option>
+                  <option data-content='<span className="flag-icon flag-icon-bd flag-icon-squared"></span> Ban'>
+                    Ban
+                  </option>
+                  <option data-content='<span className="flag-icon flag-icon-in flag-icon-squared"></span> Ind'>
+                    Ind
+                  </option>
+                </select>
+                <a href="#" className="quote-btn">
+                  Get a free quote
+                </a>
+              </div>
+            </div>
+          </nav> */}
         </header>
         {children}
         <footer className="site-footer">
@@ -326,10 +462,22 @@ export default function RootLayout({
                       service cranes, providing parts and solutions worldwide.
                       Challenges? We rise to them
                     </p>
-                    <img src="/images/footer-map-1-1.jpg" alt="Awesome Image" />
-                    <Link href="/#" className="find-us-link">
+                    <a
+                      href="https://maps.app.goo.gl/DB6ErByca3DpbBAT7"
+                      target="_blank"
+                    >
+                      <img
+                        src="/images/footer-map-1-1.jpg"
+                        alt="Awesome Image"
+                      />
+                    </a>
+                    <a
+                      href="https://maps.app.goo.gl/DB6ErByca3DpbBAT7"
+                      className="find-us-link"
+                      target="_blank"
+                    >
                       <i className="fa fa-map-marker"></i>Find us on Map
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6">
@@ -337,30 +485,33 @@ export default function RootLayout({
                     <div className="widget-title">
                       <h3>Links</h3>
                     </div>
-                    <div className="link-wrapper clearfix">
+                    <div
+                      className="link-wrapper clearfix"
+                      style={{ width: "100%" }}
+                    >
                       <ul className="link-lists">
                         <li>
-                          <Link href="/#">Home</Link>
+                          <Link href="/">Home</Link>
                         </li>
                         <li>
-                          <Link href="/#">About Us</Link>
+                          <Link href="/about-us">About Us</Link>
                         </li>
                         <li>
-                          <Link href="/#">Crane</Link>
+                          <Link href="/crane">Crane</Link>
                         </li>
                         <li>
-                          <Link href="/#">Services</Link>
+                          <Link href="/service">Services</Link>
                         </li>
                         <li>
-                          <Link href="/#">Spare parts</Link>
+                          <Link href="/spare-parts">Spare parts</Link>
                         </li>
                       </ul>
                       <ul className="link-lists">
                         <li>
-                          <Link href="/#">Blogs</Link>
+                          <Link href="/blogs">Blogs</Link>
                         </li>
                         <li>
-                          <Link href="/#">Contact Us</Link>
+                          <Link href="/contact-us">Contact Us</Link>
                         </li>
                       </ul>
                     </div>
@@ -399,9 +550,9 @@ export default function RootLayout({
                         <br /> Surat, 395003
                       </li>
                       <li>
-                        <a href="mailto:services.saifmufaddal@gmail.com">
+                        <a href="mailto:saifmufaddal@gmail.com">
                           <i className="facdori-icon-message"></i>
-                          services.saifmufaddal@gmail.com
+                          saifmufaddal@gmail.com
                         </a>
                       </li>
                       <li>

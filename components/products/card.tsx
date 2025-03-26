@@ -1,11 +1,13 @@
 "use client";
+import { useWindowWidth } from "@react-hook/window-size";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 
 const Card = ({ item, url }: any) => {
-  console.log("🚀 ~ Card ~ item:", item);
   const router = useRouter();
+  const onlyWidth = useWindowWidth();
+
   return (
     <>
       <div
@@ -26,11 +28,14 @@ const Card = ({ item, url }: any) => {
             </div>
           </div>
 
-          <div className="image-block">
+          <div
+            className="image-block"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <img
               style={{
                 height: "370px",
-                width: "370px",
+                width: onlyWidth > 1024 ? "370px" : "100%",
               }}
               src={item.mainImage}
               alt="Awesome Image"

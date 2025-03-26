@@ -7,7 +7,6 @@ import ReactOwlCarousel from "react-owl-carousel";
 const BlogDetails = () => {
   const parms = useParams();
   const [formData, setFormData] = useState<any>();
-  console.log("🚀 ~ BlogDetails ~ formData:", formData);
   useEffect(() => {
     (async () => {
       const doc: any = await getDocumentById("blogs", parms.id);

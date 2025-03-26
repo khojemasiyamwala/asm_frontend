@@ -9,9 +9,9 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../services/firebase";
 import Card from "../products/card";
+import { useWindowWidth } from "@react-hook/window-size";
 function OurServices() {
   const [d, setD] = useState([]);
-  console.log("🚀 ~ OurServices ~ d:", d);
   useEffect(() => {
     (async () => {
       const q = query(collection(db, "products"));
@@ -28,19 +28,19 @@ function OurServices() {
       setD(data);
     })();
   }, []);
-  console.log("🚀 ~ OurServices ~ d:", d);
+  const onlyWidth = useWindowWidth();
+
   return d.length ? (
     <section className="sec-pad gray-bg">
       <div className="container">
         <div className="sec-title text-center">
           <span className="tag-line">Our Products</span>
           <h2>Our Products</h2>
-         
         </div>
         <div className="service-style-one-carousel">
           <ReactOwlCarousel
             className="owl-theme"
-            items={3}
+            items={onlyWidth > 1024 ? 3 : 1}
             loop
             autoplay={true}
             autoplayTimeout={2000} // Interval between slides (in ms)

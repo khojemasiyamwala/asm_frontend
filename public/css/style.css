@@ -1082,6 +1082,12 @@ a[href^="https://maps.google.com/maps"]
   + .single-header-contact-info {
   margin-left: 60px;
 }
+
+@media (max-width: 1200px) {
+  .lower-bar {
+    display: none;
+  }
+}
 .site-header.header-four .lower-bar .single-header-contact-info i {
   color: #ffaa01;
   font-size: 32px;

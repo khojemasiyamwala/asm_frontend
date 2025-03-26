@@ -39,7 +39,7 @@ export default function Home() {
                     </h3>
                     <Link
                       data-animation="animated fadeInDown"
-                      href="#"
+                      href="/crane"
                       className="thm-btn"
                     >
                       Discover more
@@ -65,7 +65,7 @@ export default function Home() {
                     </h3>
                     <Link
                       data-animation="animated fadeInDown"
-                      href="#"
+                      href="/service"
                       className="thm-btn"
                     >
                       Discover more
@@ -91,7 +91,7 @@ export default function Home() {
                     </h3>
                     <Link
                       data-animation="animated fadeInDown"
-                      href="#"
+                      href="/spare-parts"
                       className="thm-btn"
                     >
                       Discover more
@@ -303,12 +303,15 @@ export default function Home() {
                 <span className="tag-line">Why People Choose Us?</span>
                 <h2>{home_page.choose_us.title_para}</h2>
               </div>
-              <Link href="#" className="thm-btn style-two">
+              <Link href="/about-us" className="thm-btn style-two">
                 Read More
               </Link>
             </div>
             <div className="col-lg-7">
-              <div className="row featured-style-two-row">
+              <div
+                className="row featured-style-two-row"
+                style={{ width: "100%" }}
+              >
                 <div className="col-md-6">
                   <div className="single-featured-content-two">
                     <div className="top-box">

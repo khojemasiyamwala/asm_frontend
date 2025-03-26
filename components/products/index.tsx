@@ -6,7 +6,6 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 const Product = ({ type, url }: any) => {
   const [d, setD] = useState([]);
-  console.log("🚀 ~ Product ~ d:", d);
   useEffect(() => {
     (async () => {
       const q = query(

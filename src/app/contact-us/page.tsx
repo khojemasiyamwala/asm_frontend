@@ -10,9 +10,7 @@ const Page = () => {
   });
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log("🚀 ~ handleSubmit ~ res:", formData);
     const res: any = await addDocument("contact-us", formData);
-    console.log("🚀 ~ handleSubmit ~ res:", res);
     if (res.id) {
       alert("Message sent successfully");
       setFormData({
@@ -51,11 +49,11 @@ const Page = () => {
               </div>
               <div className="single-contact-infos">
                 <h3>Call us for imiditate support on this number</h3>
-                <p>666 888 0000</p>
+                <p> +91 77788 55752</p>
               </div>
               <div className="single-contact-infos">
                 <h3>Send us email for any kind of inquiry</h3>
-                <p>needhelp@facdori.com</p>
+                <p>saifmufaddal@gmail.com</p>
               </div>
             </div>
             <div className="col-lg-7">

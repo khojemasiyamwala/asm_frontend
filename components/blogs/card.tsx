@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 const Card = ({ item }: any) => {
-  console.log("🚀 ~ Card ~ item:", item);
   const router = useRouter();
   return (
     <>

@@ -6,7 +6,6 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import Link from "next/link";
 const Blogs = () => {
   const [d, setD] = useState([]);
-  console.log("🚀 ~ Product ~ d:", d);
   useEffect(() => {
     (async () => {
       const q = query(collection(db, "blogs"));

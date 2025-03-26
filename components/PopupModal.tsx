@@ -2,8 +2,10 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { addDocument, db } from "../services/firebase";
-
+import { useWindowWidth } from "@react-hook/window-size";
 function PopupModal() {
+  const onlyWidth = useWindowWidth();
+  console.log("🚀 ~ PopupModal ~ onlyWidth:", onlyWidth);
   const [modelOpen, setModelOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -48,9 +50,7 @@ function PopupModal() {
   }, []);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log("🚀 ~ handleSubmit ~ res:", formData);
     const res: any = await addDocument("contact-us", formData);
-    console.log("🚀 ~ handleSubmit ~ res:", res);
     if (res.id) {
       alert("Message sent successfully");
       setFormData({
@@ -81,7 +81,7 @@ function PopupModal() {
             <section
               className="contact-form-wrapper"
               style={{
-                width: "50vw",
+                width: `${onlyWidth > 768 ? "50vw" : "100"}`,
                 height: "fit-content",
                 background: "#a7a5a5",
                 borderRadius: "20px",

@@ -116,10 +116,6 @@ export const handleUpload = async (file, fileName) => {
   try {
     const storageRef = ref(storage, `images/${fileName}`);
     const snapshot = await uploadBytes(storageRef, file);
-    console.log(
-      "🚀 ~ file: index.js:119 ~ handleUpload ~ storageRef:",
-      storageRef
-    );
     console.log("Uploaded a file!", snapshot);
     // Get the file's download URL
     const downloadURL = await getDownloadURL(snapshot.ref);
