@@ -229,7 +229,7 @@ export default function RootLayout({
                 </div>
                 <div className="single-header-contact-info">
                   <i className="facdori-icon-message"></i>
-                  <h3>saifmufaddal@gmail.com</h3>
+                  <h3>services.saifalmufaddal@gmail.com</h3>
                   <p>Email address</p>
                 </div>
               </div>
@@ -550,9 +550,9 @@ export default function RootLayout({
                         <br /> Surat, 395003
                       </li>
                       <li>
-                        <a href="mailto:saifmufaddal@gmail.com">
+                        <a href="mailto:services.saifalmufaddal@gmail.com">
                           <i className="facdori-icon-message"></i>
-                          saifmufaddal@gmail.com
+                          services.saifalmufaddal@gmail.com
                         </a>
                       </li>
                       <li>

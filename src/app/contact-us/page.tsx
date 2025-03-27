@@ -53,7 +53,7 @@ const Page = () => {
               </div>
               <div className="single-contact-infos">
                 <h3>Send us email for any kind of inquiry</h3>
-                <p>saifmufaddal@gmail.com</p>
+                <p>services.saifalmufaddal@gmail.com</p>
               </div>
             </div>
             <div className="col-lg-7">
