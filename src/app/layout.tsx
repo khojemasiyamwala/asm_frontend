@@ -250,9 +250,27 @@ export default function RootLayout({
           <nav className="navbar navbar-expand-lg navbar-light header-navigation stricky stricky-menu">
             <div className="container clearfix">
               <div className="logo-box clearfix">
-                <button className="menu-toggler" data-target="#main-nav-bar">
-                  <span className="fa fa-bars"></span>
-                </button>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    width: "100%",
+                  }}
+                >
+                  <button className="menu-toggler" data-target="#main-nav-bar">
+                    <span className="fa fa-bars"></span>
+                  </button>
+                  <Link href="/" className="menu-toggler">
+                    <img
+                      style={{
+                        height: "70px",
+                      }}
+                      src="/images/logo/logo.png"
+                      alt="Awesome Image"
+                    />
+                  </Link>
+                </div>
               </div>
 
               <div className="main-navigation" id="main-nav-bar">
@@ -265,38 +283,9 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link href="/crane">Crane</Link>
-                    {/* <ul className="sub-menu">
-                      <li>
-                        <Link href="/service.html">Services 01</Link>
-                      </li>
-                      <li>
-                        <Link href="/service2.html">Services 02</Link>
-                      </li>
-                      <li>
-                        <Link href="/service3.html">Services 03</Link>
-                      </li>
-                      <li>
-                        <Link href="/service-details.html">
-                          Service Details
-                        </Link>
-                      </li>
-                    </ul> */}
                   </li>
                   <li>
                     <Link href="/service">Services</Link>
-                    {/* <ul className="sub-menu">
-                      <li>
-                        <Link href="/project.html">Projects 01</Link>
-                      </li>
-                      <li>
-                        <Link href="/project2.html">Project 02</Link>
-                      </li>
-                      <li>
-                        <Link href="/project-details.html">
-                          Project Details
-                        </Link>
-                      </li>
-                    </ul> */}
                   </li>
                   <li>
                     <Link href="/spare-parts">Spare Parts</Link>
@@ -311,7 +300,10 @@ export default function RootLayout({
               </div>
             </div>
           </nav>
-          {/* <nav className="navbar navbar-expand-lg navbar-light header-navigation stricky stricky-menu">
+          <nav
+            className="navbar navbar-expand-lg navbar-light header-navigation stricky stricky-menu"
+            style={{ display: "none" }}
+          >
             <div className="container clearfix">
               <div className="logo-box clearfix">
                 <button className="menu-toggler" data-target="#main-nav-bar-2">
@@ -445,7 +437,7 @@ export default function RootLayout({
                 </a>
               </div>
             </div>
-          </nav> */}
+          </nav>
         </header>
         {children}
         <footer className="site-footer">

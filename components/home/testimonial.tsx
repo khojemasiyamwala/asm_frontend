@@ -7,7 +7,7 @@ const ReactOwlCarousel = dynamic(() => import("react-owl-carousel"), {
   ssr: false,
 });
 function Testimonial() {
-  return (
+  return testimonials ? (
     <section className="testimonials-style-three gray-bg sec-pad">
       <div className="container">
         <div className="row">
@@ -38,7 +38,7 @@ function Testimonial() {
                   loop
                   margin={10}
                 >
-                  {testimonials.map((item, index) => {
+                  {testimonials?.map((item, index) => {
                     return (
                       <div className="single-testimonial-style-three">
                         <i className="facdori-icon-icon"></i>
@@ -65,6 +65,8 @@ function Testimonial() {
         </div>
       </div>
     </section>
+  ) : (
+    <></>
   );
 }
 
